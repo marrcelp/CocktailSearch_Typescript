@@ -8,6 +8,9 @@ function Form() {
     const [drinks, setDrinks] = useState<DrinkRecipe[] | null>(null);
     const [filteredRecipes, setFilteredRecipes] = useState<DrinkRecipe[]>([]);
     const [selectedIngredientType, setSelectedIngredientType] = useState<string>('gin');
+    const [selectedRecipe, setSelectedRecipe] = useState<DrinkRecipe | null>(null);
+    const [isExpanded, setIsExpanded] = useState<boolean>(false);
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -44,6 +47,12 @@ function Form() {
         setSelectedIngredients((prevIngredients) => [...prevIngredients, ingredient]);
         setIngredient('');
     }
+
+    function handleRecipeClick(recipe: DrinkRecipe) {
+        setSelectedRecipe(recipe);
+        setIsExpanded(!isExpanded); // Dodaj tę linię, aby zmieniać stan rozwinięcia/zwiniecia
+    }
+
 
     return (
         <div>
@@ -99,10 +108,36 @@ function Form() {
                 <h2>Your recipes with selected ingredients:</h2>
                 <ul>
                     {filteredRecipes.map((recipe, index) => (
-                        <li key={index}>{recipe.strDrink}</li>
+                        <li key={index}>
+                            <div onClick={() => handleRecipeClick(recipe)}>
+                                {recipe.strDrink}
+                            </div>
+                            {selectedRecipe && selectedRecipe.idDrink === recipe.idDrink && isExpanded && (
+                                <div>
+                                    <h3>Instruction:</h3>
+                                    <p>{selectedRecipe.strInstructions}</p>
+                                    <h3>Ingredients:</h3>
+                                    <ul>
+                                        {(() => {
+                                            const ingredients = [];
+                                            for (let i = 1; i <= 15; i++) {
+                                                const ingredientKey = `strIngredient${i}` as keyof DrinkRecipe;
+                                                const ingredient = selectedRecipe[ingredientKey];
+                                                if (ingredient) {
+                                                    ingredients.push(<li key={i}>{ingredient}</li>);
+                                                }
+                                            }
+                                            return ingredients;
+                                        })()}
+                                    </ul>
+                                </div>
+                            )}
+                        </li>
                     ))}
                 </ul>
             </div>
+
+
 
         </div>
     );
