@@ -28,7 +28,7 @@ export interface DrinkRecipe extends Drink {
 }
 
 
-export async function getDrinks(ingredientType: string = 'gin'): Promise<{ data: Drink[]; drinksDetails: DrinkRecipe[] } | null> {
+export async function getDrinks(ingredientType: string): Promise<{ data: Drink[]; drinksDetails: DrinkRecipe[] } | null> {
     const API_URL: string = `${BASE_URL}/filter.php?i=${ingredientType}`;
 
 

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import {useState, useEffect } from 'react';
 import { getDrinks, DrinkRecipe } from "./api/Recipes.tsx";
 
 
@@ -44,9 +44,10 @@ function Form() {
 
     function handleIngredients(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
+        if (ingredient.length >= 3){
         setSelectedIngredients((prevIngredients) => [...prevIngredients, ingredient]);
         setIngredient('');
-    }
+    }}
 
     function handleRecipeClick(recipe: DrinkRecipe) {
         setSelectedRecipe(recipe);
@@ -57,29 +58,19 @@ function Form() {
     return (
         <div>
             <h1>Choose your ingredients, we will prepare a recipe for you!</h1>
-            <form onSubmit={(e) => handleIngredients(e)}>
-                <div className='form-group'>
-                    <input
-                        type='text'
-                        className='form-control'
-                        name='ingredient'
-                        placeholder='ex. cucumber'
-                        value={ingredient}
-                        onChange={(e) => setIngredient(e.target.value)}
-                    />
-                </div>
-                <button type='submit' className='btn'>
-                    Add ingredient
-                </button>
-            </form>
             <div className='form-group'>
                 <label>
                     <input
                         type='radio'
                         name='ingredientType'
                         value='gin'
-                        checked={selectedIngredientType === 'gin'}
-                        onChange={() => setSelectedIngredientType('gin')}
+                        // checked={selectedIngredientType === 'gin'}
+                        defaultChecked={true}
+                        onChange={() => {
+
+                            setSelectedIngredientType('gin')
+                            // setSelectedIngredients(prevIngredients => [...prevIngredients, 'Gin'])
+                        }}
                     />
                     Gin
                 </label>
@@ -88,12 +79,46 @@ function Form() {
                         type='radio'
                         name='ingredientType'
                         value='vodka'
-                        checked={selectedIngredientType === 'vodka'}
-                        onChange={() => setSelectedIngredientType('vodka')}
+                        // checked={selectedIngredientType === 'vodka'}
+                        // defaultChecked={false}
+                        onChange={() => {
+                            setSelectedIngredientType('vodka')
+                            // setSelectedIngredients(prevIngredients => [...prevIngredients, 'Vodka'])
+                        }}
                     />
                     Vodka
                 </label>
+                <label>
+                    <input
+                        type='radio'
+                        name='ingredientType'
+                        value='tequila'
+                        // checked={selectedIngredientType === 'vodka'}
+                        // defaultChecked={false}
+                        onChange={() => {
+                            setSelectedIngredientType('tequila')
+                            // setSelectedIngredients(prevIngredients => [...prevIngredients, 'Vodka'])
+                        }}
+                    />
+                    Tequila
+                </label>
             </div>
+            <form onSubmit={(e) => handleIngredients(e)}>
+                <div className='form-group'>
+                    <input
+                        type='text'
+                        className='form-control'
+                        name='ingredient'
+                        placeholder='ex. Tonic Water'
+                        value={ingredient}
+                        onChange={(e) => setIngredient(e.target.value)}
+                    />
+                </div>
+                <button type='submit' className='btn'>
+                    Add ingredient
+                </button>
+            </form>
+
 
             <div>
                 <h2>Selected ingredients:</h2>
@@ -114,6 +139,10 @@ function Form() {
                             </div>
                             {selectedRecipe && selectedRecipe.idDrink === recipe.idDrink && isExpanded && (
                                 <div>
+                                    <img src={selectedRecipe.strDrinkThumb}
+                                         style={{width: '150px', height: '150px', border: '2px solid black', borderRadius: '20px'}}
+                                         alt='Drink image'
+                                    />
                                     <h3>Instruction:</h3>
                                     <p>{selectedRecipe.strInstructions}</p>
                                     <h3>Ingredients:</h3>
@@ -122,10 +151,19 @@ function Form() {
                                             const ingredients = [];
                                             for (let i = 1; i <= 15; i++) {
                                                 const ingredientKey = `strIngredient${i}` as keyof DrinkRecipe;
-                                                const ingredient = selectedRecipe[ingredientKey];
+                                                const measureKey = `strMeasure${i}` as keyof DrinkRecipe;
+                                                const measure: any = selectedRecipe[measureKey];
+                                                const ingredient: any = selectedRecipe[ingredientKey];
+                                                const selectedIngredientstoLower = selectedIngredients.map(element => element.toLowerCase());
                                                 if (ingredient) {
-                                                    ingredients.push(<li key={i}>{ingredient}</li>);
+                                                    ingredients.push(<li style={{ color: selectedIngredientstoLower.includes(
+                                                        ingredient.toLowerCase()) ||
+                                                        (ingredient.toLowerCase() === 'gin' ||
+                                                            ingredient.toLowerCase() === 'vodka'||
+                                                            ingredient.toLowerCase() === 'tequila') ?
+                                                            'green' : 'red' }} key={i}>{ingredient} - {measure}</li>);
                                                 }
+
                                             }
                                             return ingredients;
                                         })()}
