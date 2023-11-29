@@ -1,5 +1,36 @@
 import {useState, useEffect } from 'react';
-import { getDrinks, DrinkRecipe } from "./api/Recipes.tsx";
+import {getDrinks, DrinkRecipe } from "./api/Recipes.tsx";
+
+function getRecipeIngredients(recipe: DrinkRecipe): string[] {
+    const ingredients: string[] = [];
+
+    for (let i = 1; i <= 15; i++) {
+        const ingredientKey = `strIngredient${i}` as keyof DrinkRecipe;
+        const ingredient: any = recipe[ingredientKey];
+
+        if (ingredient) {
+            ingredients.push(ingredient); // Konwersja na małe litery
+        }
+    }
+
+    return ingredients;
+}
+
+function MissingIngredients({ selectedIngredients, recipeIngredients }: { selectedIngredients: string[], recipeIngredients: string[] }) {
+    const lowerSelectedIngredients = selectedIngredients.map(ingredient => ingredient.toLowerCase()); // Konwersja na małe litery
+
+    const missingIngredients = recipeIngredients.filter(ingredient => !lowerSelectedIngredients.includes(ingredient.toLowerCase()));
+
+    if (missingIngredients.length > 0) {
+        return (
+            <div>
+                <p>You are missing the above {missingIngredients.length - 1} ingredients marked in red to prepare this drink.</p>
+            </div>
+        );
+    } else {
+        return null;
+    }
+}
 
 
 function Form() {
@@ -26,7 +57,7 @@ function Form() {
         if (drinks && selectedIngredients.length > 0) {
             const filtered = drinks.filter((recipe) => {
                 return selectedIngredients.some((ingredient) => {
-                    for (let i = 1; i <= 16; i++) {
+                    for (let i = 1; i < 16; i++) {
                         const ingredientKey = `strIngredient${i}` as keyof DrinkRecipe;
                         const ingredientValue = String(recipe[ingredientKey]);
                         if (ingredientValue.toLowerCase().includes(ingredient.toLowerCase())) {
@@ -124,14 +155,15 @@ function Form() {
                 <h2>Selected ingredients:</h2>
                 <ul>
                     {selectedIngredients.map((ingredient, index) => (
-                        <li key={index}>{ingredient}</li>
-                    ))}
+                            <li key={index}>{ingredient}</li>
+                        ))}
                 </ul>
             </div>
 
             <div>
                 <h2>Your recipes with selected ingredients:</h2>
                 <ul>
+
                     {filteredRecipes.map((recipe, index) => (
                         <li key={index}>
                             <div onClick={() => handleRecipeClick(recipe)}>
@@ -148,6 +180,7 @@ function Form() {
                                     <h3>Ingredients:</h3>
                                     <ul>
                                         {(() => {
+
                                             const ingredients = [];
                                             for (let i = 1; i <= 15; i++) {
                                                 const ingredientKey = `strIngredient${i}` as keyof DrinkRecipe;
@@ -168,6 +201,10 @@ function Form() {
                                             return ingredients;
                                         })()}
                                     </ul>
+                                    <MissingIngredients
+                                        selectedIngredients={selectedIngredients}
+                                        recipeIngredients={getRecipeIngredients(recipe)}
+                                    />
                                 </div>
                             )}
                         </li>
