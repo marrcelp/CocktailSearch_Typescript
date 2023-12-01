@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@100;300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+.header {
+  color: #3a394c;
+  background-color: rgba(255,255,255,0.2);
+  height: 70px;
+  position: sticky;
+  z-index: 1;
+  width: 100%;
+  top: 0;
+  box-shadow: 0 3px 6px #00000029;
+
+
+
+  .nav-list {
+    display: flex;
+    list-style: none;
+
+
+    li {
+      margin-left: 30px;
+      font-family: 'Saira Extra Condensed';
+      font-weight: 400;
+      font-size: 20px;
+      cursor: pointer;
+
+      &:hover {
+        box-shadow: 0 2px #3a394c;
+      }
+    }
+  }
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+
+}
+
+.banner {
+  height: 100vh;
+  background-image: url("./images/great-cocktails-qBJE30dBnNA-unsplash.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  margin-top: -70px;
+
+}
+
+
+.discover {
+
+  padding: 100px 0;
+  background: linear-gradient(180deg, rgba(3,41,67,1) 15%, rgba(12,151,246,1) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    height: 90vh;
+    width: auto;
+    //margin-left: -90px;
+
+
+  }
+
+  .description {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    background-color: white;
+    height: 70vh;
+    //justify-content: center;
+    justify-content: center;
+    margin-left: -150px;
+    margin-right: 150px;
+    padding: 0 100px;
+    border-radius: 26% 74% 70% 30% / 63% 58% 42% 37%;
+
+
+
+    .btn {
+      background-color: #032943;
+      font-family: 'Saira Extra Condensed';
+      font-size: 20px;
+      font-weight: 400;
+      color: white;
+      border: none;
+      padding: 6px 20px;
+      width: 170px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+  }
+
+}
+.class-title {
+  font-family: 'Saira Extra Condensed';
+  font-size: 32px;
+  font-weight: 600;
+  color: #032943;
+}
+
+.our_cocktails {
+  background-image: url("./images/great-cocktails-Sh83RLW-Zjc-unsplash.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+
+
+  .cocktail-title {
+    margin-top: 80px;
+    font-family: "Saira Extra Condensed";
+    font-size: 42px;
+    color: white;
+    font-weight: 600;
+    position: relative;
+  }
+
+
+  .our_cocktails-overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, rgba(3,41,67,1) 15%, rgba(12,151,246,0.7) 100%);
+    height: 100%;
+
+    z-index: 1;
+    top: 0;
+    left: 0;
+  }
+
+  .container-cocktails {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    gap: 20px;
+  }
+
+  .drink_recipe {
+    background-color: #dfa4a9;
+    padding: 20px;
+    width: 100%;
+    margin: 50px 0 100px 0;
+    box-shadow: 0px 3px 6px rgb(41 42 45);
+  }
+
+
+}
