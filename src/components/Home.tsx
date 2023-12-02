@@ -12,9 +12,7 @@ const Home = () => {
 
             <section className='discover'>
                 <div className='discover-photo'>
-                    <a href="">
-                        <img src="src/images/great-cocktails-qWAFpTpboyQ-unsplash.jpeg" alt="" className='image'/>
-                    </a>
+                        <img src="src/images/great-cocktails-qWAFpTpboyQ-unsplash.jpeg" alt="bottle and glassess" className='image'/>
                 </div>
                 <div className='description'>
                     <h2 className='class-title'>LOREM IPSUM</h2>
