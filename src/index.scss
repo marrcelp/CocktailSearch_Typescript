@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@100;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600&display=swap');
 
 * {
   margin: 0;
@@ -22,6 +23,12 @@
     display: flex;
     list-style: none;
 
+    a {
+      text-decoration: none;
+      color: #3a394c;
+
+    }
+
 
     li {
       margin-left: 30px;
@@ -36,6 +43,14 @@
     }
   }
 }
+
+p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: #032943;
+}
+
 .container {
   display: flex;
   justify-content: space-between;
@@ -56,6 +71,30 @@
   margin-top: -70px;
 
 }
+
+  .banner-description {
+  position: absolute;
+  bottom: 80px;
+  width: 400px;
+
+  .class-title {
+    font-size: 60px;
+  }
+
+  .btn-banner {
+    background-color: #032943;
+    font-family: 'Saira Extra Condensed';
+    font-size: 20px;
+    font-weight: 400;
+    color: white;
+    border: none;
+    padding: 6px 20px;
+    width: 170px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+}
+
 
 
 .discover {
@@ -80,12 +119,16 @@
     text-align: left;
     background-color: white;
     height: 70vh;
-    //justify-content: center;
     justify-content: center;
     margin-left: -150px;
     margin-right: 150px;
     padding: 0 100px;
     border-radius: 26% 74% 70% 30% / 63% 58% 42% 37%;
+
+
+    p {
+      font-size: 14px;
+    }
 
 
 
@@ -159,6 +202,15 @@
     flex-direction: column;
     justify-content: center;
 
+    a {
+      text-decoration: none;
+      color: #032943;
+      font-family: 'Montserrat', 'sans-serif';
+      font-weight: 600;
+      margin-top: 15px;
+
+    }
+
     img {
       height: auto;
       max-width: 100%;
@@ -167,4 +219,39 @@
   }
 
 
+}
+
+.generator {
+  padding: 100px 0;
+  background: linear-gradient(180deg, rgba(3,41,67,1) 15%, rgba(12,151,246,1) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .class-title {
+    color: white;
+    font-size: 42px;
+  }
+
+  h2 {
+    font-size: 32px;
+    color: white;
+    font-family: "Saira Extra Condensed", sans-serif;
+    font-weight: 600;
+  }
+
+  h3 {
+    color: white;
+    font-family: "Saira Extra Condensed", sans-serif;
+  }
+
+}
+
+label {
+  font-family: 'Montserrat';
+}
+
+ul {
+  font-family: 'Montserrat';
 }

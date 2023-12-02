@@ -2,17 +2,22 @@
 const Home = () => {
     return (
         <>
-            <section className='home'>
-                <div className='banner'>
-                    <div>
-
+            <section id='home' className='home'>
+                <div className='banner'></div>
+                <div className='container'>
+                    <div className='banner-description'>
+                        <h1 className='class-title'>COCKTAIL SEARCH</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis dolores eaque, fuga in maiores quasi? Adipisci aliquid aspernatur atque cumque dolorem in, iusto, laborum maxime sed sit tempore, vero. Nostrum?</p>
+                        <a href='#generator'>
+                            <button className='btn btn-banner'>FIND YOUR RECIPE</button>
+                        </a>
                     </div>
                 </div>
             </section>
 
             <section className='discover'>
                 <div className='discover-photo'>
-                        <img src="src/images/great-cocktails-qWAFpTpboyQ-unsplash.jpeg" alt="bottle and glassess" className='image'/>
+                    <img src="src/images/great-cocktails-qWAFpTpboyQ-unsplash.jpeg" alt="bottle and glassess" className='image'/>
                 </div>
                 <div className='description'>
                     <h2 className='class-title'>LOREM IPSUM</h2>

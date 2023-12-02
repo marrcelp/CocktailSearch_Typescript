@@ -87,8 +87,8 @@ function Form() {
 
 
     return (
-        <div>
-            <h1>Choose your ingredients, we will prepare a recipe for you!</h1>
+        <section id='generator' className='generator'>
+            <h1 className='class-title'>CHOOSE YOUR INGREDIENTS, WE WILL PREPARE A RECIPE FOR YOU!</h1>
             <div className='form-group'>
                 <label>
                     <input
@@ -214,7 +214,7 @@ function Form() {
 
 
 
-        </div>
+        </section>
     );
 }
 
