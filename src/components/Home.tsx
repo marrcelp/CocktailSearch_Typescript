@@ -1,4 +1,4 @@
-
+import home_image from '../../src/images/home_image.jpeg';
 const Home = () => {
     return (
         <>
@@ -17,7 +17,7 @@ const Home = () => {
 
             <section className='discover'>
                 <div className='discover-photo'>
-                    <img src="src/images/great-cocktails-qWAFpTpboyQ-unsplash.jpeg" alt="bottle and glassess" className='image'/>
+                    <img src={home_image} alt="bottle and glassess" className='image'/>
                 </div>
                 <div className='description'>
                     <h2 className='class-title'>LOREM IPSUM</h2>
