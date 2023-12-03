@@ -1,10 +1,10 @@
 // import { Link } from 'react-router-dom';
 
 //TODO : dodac "Link to" do elementów li w nav.
-const Header = () => {
+const Header: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
     return (
 
-            <header className = 'header'>
+            <header style={{ display: isVisible ? 'block' : 'none' }} className = 'header'>
                 <div className = 'container'>
                     <div className='logo'>
                         <img src =''/>

@@ -1,9 +1,9 @@
 import ourcocktails_image1 from '../../src/images/ourcocktails_image1.png';
 import ourcocktails_image2 from '../../src/images/ourcocktails_image2.png';
 
-const Ourcocktails = () => {
+const Ourcocktails: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
     return (
-        <section id='ourcocktails' className='our_cocktails'>
+        <section style={{ display: isVisible ? 'block' : 'none' }} id='ourcocktails' className='our_cocktails'>
             <div className='our_cocktails-overlay'>
             <h2 className='cocktail-title'>OUR COCKTAILS</h2>
             <div className='container container-cocktails'>

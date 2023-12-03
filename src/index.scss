@@ -255,3 +255,35 @@ label {
 ul {
   font-family: 'Montserrat';
 }
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.selected-ingredients {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+  max-width: 376px;
+
+}
+
+.drink_details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+  max-width: 376px;
+
+
+}
