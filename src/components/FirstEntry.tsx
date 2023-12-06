@@ -42,11 +42,13 @@ const FirstEntry: React.FC<FirstEntryProps> = ({ isVisible, setIsVisible }) => {
             setVisible(true);
             setSavedAge(age.toString());
             localStorage.setItem('savedAge', age.toString());
+            setIsValid(true);
         } else {
             setIsVisible(false);
             setVisible(false);
             setSavedAge(null);
             localStorage.removeItem('savedAge');
+            setIsValid(false);
         }
     }
 
@@ -84,6 +86,7 @@ const FirstEntry: React.FC<FirstEntryProps> = ({ isVisible, setIsVisible }) => {
                             onChange={(e) => setYear(e.target.value)}
                         />
                     </div>
+                    {isValid ? <p>&nbsp;</p> : <p className='invalid_date'>Invalid date of birth, or you are under required age!</p>}
                     <button className='btn-first_entry' type="submit">Enter</button>
                     <p className='term_and_conditions'>By entering this site, I accept Privacy Policy and Terms & Conditions</p>
                 </form>

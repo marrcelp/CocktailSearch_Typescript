@@ -82,7 +82,7 @@ const Form: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
 
     function handleRecipeClick(recipe: DrinkRecipe) {
         setSelectedRecipe(recipe);
-        setIsExpanded(!isExpanded); // Dodaj tę linię, aby zmieniać stan rozwinięcia/zwiniecia
+        setIsExpanded(!isExpanded); // stan rozwinięcia/zwiniecia
     }
 
 

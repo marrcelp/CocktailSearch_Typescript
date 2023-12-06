@@ -361,7 +361,7 @@ ul {
   padding: 20px;
   border: none;
   border-radius: 50px;
-  margin: 20px 0 20px 0;
+  margin: 0px 0 20px 0;
   cursor: pointer;
   font-family: 'Montserrat', 'sans-serif';
   font-weight: 600;
@@ -391,3 +391,14 @@ input[type="number"]::-webkit-outer-spin-button {
   border-color: #d13030;
 
 }
+
+.invalid_date {
+  margin: 0;
+  font-family: 'Montserrat', 'sans-serif';
+  font-weight: 500;
+  font-size: 13px;
+  text-align: center;
+  color: #d13030;
+
+}
+
