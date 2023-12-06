@@ -33,7 +33,7 @@ function MissingIngredients({ selectedIngredients, recipeIngredients }: { select
 }
 
 
-function Form() {
+const Form: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
     const [selectedIngredients, setSelectedIngredients] = useState<string[]>([]);
     const [ingredient, setIngredient] = useState('');
     const [drinks, setDrinks] = useState<DrinkRecipe[] | null>(null);
@@ -82,12 +82,12 @@ function Form() {
 
     function handleRecipeClick(recipe: DrinkRecipe) {
         setSelectedRecipe(recipe);
-        setIsExpanded(!isExpanded); // Dodaj tę linię, aby zmieniać stan rozwinięcia/zwiniecia
+        setIsExpanded(!isExpanded); // stan rozwinięcia/zwiniecia
     }
 
 
     return (
-        <section id='generator' className='generator'>
+        <section style={{ display: isVisible ? 'block' : 'none' }} id='generator' className='generator'>
             <h1 className='class-title'>CHOOSE YOUR INGREDIENTS, WE WILL PREPARE A RECIPE FOR YOU!</h1>
             <div className='form-group'>
                 <label>
@@ -160,7 +160,7 @@ function Form() {
                 </ul>
             </div>
 
-            <div>
+            <div className='selected_ingredients'>
                 <h2>Your recipes with selected ingredients:</h2>
                 <ul>
 
@@ -170,7 +170,7 @@ function Form() {
                                 {recipe.strDrink}
                             </div>
                             {selectedRecipe && selectedRecipe.idDrink === recipe.idDrink && isExpanded && (
-                                <div>
+                                <div className='drink_details'>
                                     <img src={selectedRecipe.strDrinkThumb}
                                          style={{width: '150px', height: '150px', border: '2px solid black', borderRadius: '20px'}}
                                          alt='Drink image'

@@ -1,8 +1,9 @@
 import home_image from '../../src/images/home_image.jpeg';
-const Home = () => {
+const Home: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
+
     return (
         <>
-            <section id='home' className='home'>
+            <section style={{ display: isVisible ? 'block' : 'none' }} id='home' className='home'>
                 <div className='banner'></div>
                 <div className='container'>
                     <div className='banner-description'>
@@ -15,7 +16,7 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className='discover'>
+            <section style={{ display: isVisible ? 'flex' : 'none' }} className='discover'>
                 <div className='discover-photo'>
                     <img src={home_image} alt="bottle and glassess" className='image'/>
                 </div>
