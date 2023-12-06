@@ -402,3 +402,48 @@ input[type="number"]::-webkit-outer-spin-button {
 
 }
 
+.footer {
+
+  background-color: #032943;
+  display: flex;
+  justify-content: center;
+
+
+  .container-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+
+
+    h3 {
+      font-family: "Saira Extra Condensed", sans-serif;
+      font-weight: 600;
+      font-size: 32px;
+      color: white;
+      margin: 20px 0 10px 0;
+    }
+
+    p {
+      color: white;
+      font-size: 14px;
+      font-family: 'Montserrat', 'sans-serif';
+
+    }
+
+    ul {
+      display: flex;
+      list-style: none;
+      font-family: 'Montserrat', 'sans-serif';
+      color: white;
+      font-size: 14px;
+      justify-content: space-evenly;
+      margin: 50px 50px;
+      width: 100%;
+
+
+    }
+
+  }
+}
