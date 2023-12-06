@@ -287,3 +287,107 @@ ul {
 
 
 }
+
+
+.first_entry {
+  background-image: url("./images/firstentry-img.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  width: auto;
+
+  .container-first_entry {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background: linear-gradient(180deg, rgba(212,149,157,1) 20%, rgba(212,149,157,0.5) 100%);
+    height: 100%;
+
+    z-index: 1;
+    top: 0;
+    left: 0;
+
+    h1 {
+      font-family: "Saira Extra Condensed", sans-serif;
+      font-size: 42px;
+      color: white;
+    }
+
+    h2 {
+      font-family: Montserrat, sans-serif;
+      font-size: 24px;
+      font-weight: 400;
+      color: white;
+      text-align: center;
+    }
+  }
+
+}
+
+.form-group {
+
+  display: flex;
+  flex-direction: row;
+
+  .input-form-age {
+    padding: 20px;
+    margin: 3px;
+    max-width: 33%;
+    border: 1px solid white;
+    border-radius: 3px;
+    background-color: transparent;
+    margin-top: 30px;
+    color: white;
+    text-align: center;
+    font-family: 'Montserrat', 'sans-serif';
+    font-weight: 500;
+
+
+    &::placeholder {
+      color: white;
+      text-align: center;
+    }
+
+  }
+}
+
+.btn-first_entry {
+  width: 100%;
+  background-color: #032943;
+  color: white;
+  padding: 20px;
+  border: none;
+  border-radius: 50px;
+  margin: 20px 0 20px 0;
+  cursor: pointer;
+  font-family: 'Montserrat', 'sans-serif';
+  font-weight: 600;
+  font-size: 14px;
+
+}
+
+.term_and_conditions {
+  font-family: 'Montserrat', 'sans-serif';
+  font-weight: 300;
+  font-size: 12px;
+  text-align: center;
+  color: white;
+
+
+}
+// USUNIĘCIE STRZALEK DO ZWIEKSZANIA NUMERU W INPUCIE (WBUDOWANE W PRZEGLADARCE)
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-form-age.invalid {
+  color: #d13030;
+  border-color: #d13030;
+
+}

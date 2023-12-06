@@ -14,7 +14,7 @@ function App() {
 
   return (
     <>
-        <FirstEntry setIsVisible={setIsVisible}/>
+        <FirstEntry isVisible={isVisible} setIsVisible={setIsVisible}/>
         <Header isVisible={isVisible}/>
         <Home isVisible={isVisible}/>
         <Ourcocktails isVisible={isVisible}/>
