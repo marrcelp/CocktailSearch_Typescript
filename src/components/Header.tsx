@@ -1,5 +1,6 @@
 import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
 import { Link, useLocation } from 'react-router-dom';
+import logo from '../../src/images/logo-full.png';
 
 const Header: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
     const location = useLocation();
@@ -9,8 +10,8 @@ const Header: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
         <header style={{ display: isVisible ? 'block' : 'none' }} className="header">
             <div className="container">
                 <div className="logo">
-                    <img src="" alt="Logo" />
-                    <span onClick={() => scroll.scrollToTop()}>LOGO</span>
+                    <img onClick={() => scroll.scrollToTop()} src={logo} className='logotype' alt="logotype" />
+                    {/*<span onClick={() => scroll.scrollToTop()}>LOGO</span>*/}
                 </div>
                 <nav>
                     <ul className="nav-list">
