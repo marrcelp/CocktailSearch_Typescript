@@ -9,7 +9,7 @@ function getRecipeIngredients(recipe: DrinkRecipe): string[] {
         const ingredient: any = recipe[ingredientKey];
 
         if (ingredient) {
-            ingredients.push(ingredient); // Konwersja na małe litery
+            ingredients.push(ingredient);
         }
     }
 
@@ -85,6 +85,12 @@ const Form: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
         setIsExpanded(!isExpanded); // stan rozwinięcia/zwiniecia
     }
 
+    function handleRemove(ingredientToRemove: string) {
+        setSelectedIngredients((prevIngredients) => (prevIngredients.filter((ingredient) => ingredient !== ingredientToRemove))
+        );
+    }
+
+
 
     return (
         <section style={{ display: isVisible ? 'block' : 'none' }} id='generator' className='generator'>
@@ -155,7 +161,10 @@ const Form: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
                 <h2>Selected ingredients:</h2>
                 <ul>
                     {selectedIngredients.map((ingredient, index) => (
-                            <li key={index}>{ingredient}</li>
+                            <li key={index}>
+                                {ingredient}
+                                <button onClick={() => handleRemove(ingredient)}>X</button>
+                            </li>
                         ))}
                 </ul>
             </div>
