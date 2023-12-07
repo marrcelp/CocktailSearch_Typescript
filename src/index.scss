@@ -9,13 +9,19 @@
 }
 .header {
   color: #3a394c;
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(255,255,255,0.5);
   height: 70px;
   position: sticky;
   z-index: 1;
   width: 100%;
   top: 0;
   box-shadow: 0 3px 6px #00000029;
+
+  .logotype {
+    height: 120px;
+    width: auto;
+    cursor: pointer;
+  }
 
 
 
@@ -402,3 +408,63 @@ input[type="number"]::-webkit-outer-spin-button {
 
 }
 
+.footer {
+
+  background-color: #032943;
+  display: flex;
+  justify-content: center;
+
+
+  .container-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+
+
+    h3 {
+      font-family: "Saira Extra Condensed", sans-serif;
+      font-weight: 600;
+      font-size: 32px;
+      color: white;
+      margin: 20px 0 10px 0;
+    }
+
+    p {
+      color: white;
+      font-size: 14px;
+      font-family: 'Montserrat', 'sans-serif';
+
+    }
+
+    ul {
+      display: flex;
+      list-style: none;
+      font-family: 'Montserrat', 'sans-serif';
+      color: white;
+      font-size: 14px;
+      justify-content: space-evenly;
+      margin: 50px 0 30px 0;
+      width: 100%;
+      cursor: pointer;
+
+
+    }
+
+  }
+}
+
+.icons {
+
+  display: flex;
+
+  .icon-socialmedia {
+    color: white;
+    width: 48px;
+    height: 48px;
+    margin: 0 5px 30px 5px;
+    cursor: pointer;
+  }
+
+}

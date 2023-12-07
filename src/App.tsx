@@ -7,6 +7,7 @@ import FirstEntry from './components/FirstEntry.tsx';
 import About from './components/About.tsx';
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Footer from "./components/Footer.tsx";
 
 function App() {
     const [isVisible, setIsVisible] = useState(false);
@@ -22,13 +23,15 @@ function App() {
                         element={
                             <>
                                 <Home isVisible={isVisible} />
-                                <Ourcocktails isVisible={isVisible} />
                                 <Form isVisible={isVisible} />
+                                <Ourcocktails isVisible={isVisible} />
+                                <Footer isVisible={isVisible} />
                             </>
                         }
                     />
                     <Route path="/about" element={<About />} />
                 </Routes>
+
             </>
         </BrowserRouter>
     );
