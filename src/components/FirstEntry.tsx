@@ -20,7 +20,9 @@ const FirstEntry: React.FC<FirstEntryProps> = ({ isVisible, setIsVisible }) => {
         const monthValue: number = parseInt((formFields[1] as HTMLInputElement).value);
         const yearValue: number = parseInt((formFields[2] as HTMLInputElement).value);
 
-        if (dayValue > 31 || monthValue > 12 || yearValue < 1900) {
+        if (dayValue > 31 || dayValue < 1 ||
+            monthValue > 12 || monthValue < 1 ||
+            yearValue < 1900) {
             setIsValid(false);
             return;
         } else {

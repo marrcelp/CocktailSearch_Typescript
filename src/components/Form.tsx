@@ -1,4 +1,4 @@
-import {useState, useEffect } from 'react';
+import React, {useState, useEffect } from 'react';
 import {getDrinks, DrinkRecipe } from "./api/Recipes.tsx";
 import generatorimg from '../../src/images/generator-img.png';
 
@@ -42,6 +42,7 @@ const Form: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
     const [selectedIngredientType, setSelectedIngredientType] = useState<string>('gin');
     const [selectedRecipe, setSelectedRecipe] = useState<DrinkRecipe | null>(null);
     const [isExpanded, setIsExpanded] = useState<boolean>(false);
+    const [isValid, setIsValid] = useState<boolean>(true);
 
 
     useEffect(() => {
@@ -79,7 +80,10 @@ const Form: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
         if (ingredient.length >= 3){
         setSelectedIngredients((prevIngredients) => [...prevIngredients, ingredient]);
         setIngredient('');
-    }}
+        setIsValid(true);
+    } else {
+            setIsValid(false);
+        }}
 
     function handleRecipeClick(recipe: DrinkRecipe) {
         setSelectedRecipe(recipe);
@@ -154,6 +158,7 @@ const Form: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
                                 onChange={(e) => setIngredient(e.target.value)}
                             />
                         </div>
+                        {isValid ? <p>&nbsp;</p> : <p className='invalid_ingredient'>Your ingredient name must contain at least 3 letters!</p>}
                         <button type='submit' className='btn'>
                             ADD INGREDIENT
                         </button>
