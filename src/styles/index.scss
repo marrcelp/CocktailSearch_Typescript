@@ -69,7 +69,7 @@ p {
 
 .banner {
   height: 100vh;
-  background-image: url("./images/great-cocktails-qBJE30dBnNA-unsplash.jpeg");
+  background-image: url("../images/great-cocktails-qBJE30dBnNA-unsplash.jpeg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -161,7 +161,7 @@ p {
 }
 
 .our_cocktails {
-  background-image: url("./images/great-cocktails-Sh83RLW-Zjc-unsplash.jpeg");
+  background-image: url("../images/great-cocktails-Sh83RLW-Zjc-unsplash.jpeg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -252,6 +252,7 @@ p {
       height: 70vh;
       width: auto;
       margin-top: 300px;
+      margin-bottom: 0;
 
     }
 
@@ -456,10 +457,13 @@ ul {
   font-size: 16px;
   font-weight: 500;
 
-
   ul {
     list-style-type: "- ";
     margin-left: 20px;
+
+    li {
+      cursor: pointer;
+    }
   }
 }
 
@@ -508,7 +512,7 @@ ul {
 
 
 .first_entry {
-  background-image: url("./images/firstentry-img.jpeg");
+  background-image: url("../images/firstentry-img.jpeg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -677,6 +681,59 @@ input[type="number"]::-webkit-outer-spin-button {
     height: 48px;
     margin: 0 5px 30px 5px;
     cursor: pointer;
+  }
+
+}
+
+.about {
+  background: linear-gradient(180deg, rgba(223,164,169,1) 20%, rgba(122,204,238,1) 100%);
+  margin-top: -70px;
+  text-align: center;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 120px 0 100px 0;
+}
+  .about-section {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 100px;
+
+    .video {
+      display: flex;
+      justify-content: center;
+    }
+
+
+    .about-description {
+      padding: 20px;
+      text-align: left;
+    }
+
+    img {
+      max-height: 70vh;
+    }
+  }
+
+  h1 {
+    font-size: 42px;
+    color: white;
+  }
+
+  h3 {
+    font-size: 38px;
+    color: white;
+    font-weight: 500;
+    font-family: "Saira Extra Condensed", sans-serif;
+  }
+
+  p {
+    font-family: 'Montserrat', 'sans-serif';
+    font-weight: 300;
+    font-size: 16px;
+    color: white;
   }
 
 }
