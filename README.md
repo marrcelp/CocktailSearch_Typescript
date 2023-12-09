@@ -1,31 +1,65 @@
-# React + TypeScript + Vite
+# Cocktail Search App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the Cocktail Search App! This web application allows you to generate cocktail recipes based on your choice of alcohol and ingredients. It is built using React, TypeScript, and Sass to provide a user-friendly and visually appealing experience.
 
-Currently, two official plugins are available:
+## Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To run the application locally, follow these steps:
 
-## Expanding the ESLint configuration
+1. **Clone the Repository:**
+   ```bash
+   git clone [repository-url]
+   ```
+2. **Navigate to the Project Directory:**
+    ```bash
+   cd cocktail-generator-app
+   ```
+3. **Install Dependencies:**
+    ```bash
+   npm install
+    ```
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+4. **Install Dependencies:**
+    ```bash
+   npm start
+   ```
 
-- Configure the top-level `parserOptions` property like this:
+The app will be accessible at http://localhost:3000.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Features
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-# CocktailSearch_Typescript
+- Alcohol Selection: Choose your preferred type of alcohol from a list of options.
+- Ingredient Input: Enter specific ingredients you have on hand.
+- Recipe Generation: Get a curated cocktail recipe based on your selections.
+- Ingredient List: View a detailed list of ingredients required for the chosen recipe.
+
+## Technologies Used
+
+- React: A JavaScript library for building user interfaces.
+- TypeScript: A superset of JavaScript that adds static types to the language.
+- Sass: A preprocessor scripting language that is interpreted or compiled into Cascading Style Sheets (CSS).
+
+## Project Structure
+
+The project is organized as follows:
+
+- src/components: Contains React components for different parts of the application.
+- src/styles: Sass files for styling the components.
+
+## Contributing
+
+Contributions are welcome! If you would like to contribute to the project, please follow these steps:
+
+- Fork the repository.
+- Create a new branch for your feature or bug fix.
+- Make your changes and submit a pull request.
+
+
+## Acknowledgements
+- The cocktail recipes are sourced from a reputable mixology API.
+- Special thanks to the React, TypeScript, and Sass communities for their excellent documentation and support.
+Enjoy your cocktails responsibly!
+
+**Project fully created by marrcelp, all rights reserved.**
+
+

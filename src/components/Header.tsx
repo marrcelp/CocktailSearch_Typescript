@@ -20,6 +20,9 @@ const Header: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
                                 <ScrollLink to="home" smooth={true} duration={900}>
                                     <li>HOME</li>
                                 </ScrollLink>
+                                <ScrollLink to="generator" smooth={true} duration={900}>
+                                    <li>GENERATOR</li>
+                                </ScrollLink>
                                 <ScrollLink to="ourcocktails" smooth={true} duration={900}>
                                     <li>OUR COCKTAILS</li>
                                 </ScrollLink>
@@ -28,6 +31,9 @@ const Header: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
                             <>
                                 <li>
                                     <Link to="/">HOME</Link>
+                                </li>
+                                <li>
+                                    <Link to="/#generator">GENERATOR</Link>
                                 </li>
                                 <li>
                                     <Link to="/#ourcocktails">OUR COCKTAILS</Link>
