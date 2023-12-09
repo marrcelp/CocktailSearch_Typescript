@@ -179,54 +179,62 @@ const Form: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
 
                     <div className='recipes'>
                         <h2>Your recipes with selected ingredients:</h2>
-                        <ul>
+                            <ul>
 
-                            {filteredRecipes.map((recipe, index) => (
-                                <li key={index}>
-                                    <div onClick={() => handleRecipeClick(recipe)}>
-                                        {recipe.strDrink}
-                                    </div>
-                                    {selectedRecipe && selectedRecipe.idDrink === recipe.idDrink && isExpanded && (
-                                        <div className='drink_details'>
-                                            <img src={selectedRecipe.strDrinkThumb}
-                                                 style={{width: '150px', height: '150px', border: '2px solid white', borderRadius: '20px'}}
-                                                 alt='Drink image'
-                                            />
-                                            <h3>Instruction:</h3>
-                                            <p>{selectedRecipe.strInstructions}</p>
-                                            <h3>Ingredients:</h3>
-                                            <ul>
-                                                {(() => {
-
-                                                    const ingredients = [];
-                                                    for (let i = 1; i <= 15; i++) {
-                                                        const ingredientKey = `strIngredient${i}` as keyof DrinkRecipe;
-                                                        const measureKey = `strMeasure${i}` as keyof DrinkRecipe;
-                                                        const measure: any = selectedRecipe[measureKey];
-                                                        const ingredient: any = selectedRecipe[ingredientKey];
-                                                        const selectedIngredientstoLower = selectedIngredients.map(element => element.toLowerCase());
-                                                        if (ingredient) {
-                                                            ingredients.push(<li style={{ color: selectedIngredientstoLower.includes(
-                                                                ingredient.toLowerCase()) ||
-                                                                (ingredient.toLowerCase() === 'gin' ||
-                                                                    ingredient.toLowerCase() === 'vodka'||
-                                                                    ingredient.toLowerCase() === 'tequila') ?
-                                                                    '#008e00' : '#d13030' }} key={i}>{ingredient} - {measure}</li>);
-                                                        }
-
-                                                    }
-                                                    return ingredients;
-                                                })()}
-                                            </ul>
-                                            <MissingIngredients
-                                                selectedIngredients={selectedIngredients}
-                                                recipeIngredients={getRecipeIngredients(recipe)}
-                                            />
+                                {filteredRecipes.map((recipe, index) => (
+                                    <li key={index}>
+                                        <div onClick={() => handleRecipeClick(recipe)}>
+                                            {recipe.strDrink}
                                         </div>
-                                    )}
-                                </li>
-                            ))}
-                        </ul>
+                                        {selectedRecipe && selectedRecipe.idDrink === recipe.idDrink && isExpanded && (
+                                            <div className='recipes-container'>
+                                            <div className='drink_details'>
+                                                <img src={selectedRecipe.strDrinkThumb}
+                                                     style={{width: '150px', height: '150px', border: '1px solid white', borderRadius: '20px'}}
+                                                     alt='Drink image'
+                                                />
+                                                <div className='instruction-container'>
+                                                    <h3>Instruction:</h3>
+                                                    <p>{selectedRecipe.strInstructions}</p>
+                                                </div>
+                                                <div className='ingredients-container'>
+                                                <h3>Ingredients:</h3>
+                                                <ul>
+                                                    {(() => {
+
+                                                        const ingredients = [];
+                                                        for (let i = 1; i <= 15; i++) {
+                                                            const ingredientKey = `strIngredient${i}` as keyof DrinkRecipe;
+                                                            const measureKey = `strMeasure${i}` as keyof DrinkRecipe;
+                                                            const measure: any = selectedRecipe[measureKey];
+                                                            const ingredient: any = selectedRecipe[ingredientKey];
+                                                            const selectedIngredientstoLower = selectedIngredients.map(element => element.toLowerCase());
+                                                            if (ingredient) {
+                                                                ingredients.push(<li style={{ color: selectedIngredientstoLower.includes(
+                                                                    ingredient.toLowerCase()) ||
+                                                                    (ingredient.toLowerCase() === 'gin' ||
+                                                                        ingredient.toLowerCase() === 'vodka'||
+                                                                        ingredient.toLowerCase() === 'tequila') ?
+                                                                        '#008e00' : '#d13030' }} key={i}>{ingredient} - {measure}</li>);
+                                                            }
+
+                                                        }
+                                                        return ingredients;
+                                                    })()}
+                                                </ul>
+                                                <MissingIngredients
+                                                    selectedIngredients={selectedIngredients}
+                                                    recipeIngredients={getRecipeIngredients(recipe)}
+                                                />
+                                                </div>
+                                            </div>
+                                            </div>
+                                        )}
+
+                                    </li>
+                                ))}
+                            </ul>
+
                     </div>
                 </div>
                 <img src={generatorimg} className='generator_image'/>
