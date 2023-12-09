@@ -228,12 +228,159 @@ p {
 }
 
 .generator {
-  padding: 100px 0;
-  background: linear-gradient(180deg, rgba(3,41,67,1) 15%, rgba(12,151,246,1) 100%);
+  padding-top: 80px;
+  background: linear-gradient(90deg, rgba(3,41,67,1) 0%, rgba(122,204,238,1) 100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+
+  .class-title {
+    margin-bottom: 10px;
+  }
+
+  .generator-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+
+
+    .generator_image {
+      height: 70vh;
+      width: auto;
+      margin-top: 200px;
+
+    }
+
+    .form-container {
+
+      .form-group {
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: 50px;
+
+
+        .form-control {
+          font-family: 'Montserrat', 'sans-serif';
+          color: white;
+          font-weight: 500;
+          width: 501px;
+          height: 42px;
+          text-align: center;
+          line-height: 22px;
+          display: block;
+          border: 2px solid white;
+          border-radius: 40px;
+          padding: 10px;
+          color: #032943;
+          margin-bottom: -30px;
+
+
+        }
+
+        label {
+          position: relative;
+          cursor: pointer;
+          margin-right: 100px;
+          font-family: 'Montserrat', 'sans-serif';
+          color: white;
+          font-weight: 500;
+          z-index: 1;
+          margin-top: 50px;
+          margin-left: 34px;
+
+          &:nth-child(1){
+            margin-right: 115px;
+          }
+        }
+      }
+
+      .input-radio {
+        width: 0;
+        height: 0;
+        position: absolute;
+        z-index: -1;
+        cursor: pointer;
+
+
+      }
+      .input-radio::after {
+        content: '';
+        width: 100px;
+        height: 22px;
+        display: block;
+        border: 2px solid white;
+        border-radius: 40px;
+        padding: 10px;
+        transform: translate(-27%, -29%);
+        text-align: center;
+        line-height: 22px;
+
+
+      }
+
+      .input-radio:checked::after {
+        background-color: #dfa4a9;
+        border-color: white;
+      }
+
+
+
+    }
+  }
+
+  .btn {
+
+    font-family: "Saira Extra Condensed", sans-serif;
+    font-weight: 500;
+    padding: 10px;
+    background-color: #032943;
+    color: white;
+    font-size: 22px;
+    line-height: 22px;
+    text-align: center;
+    width: 501px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 50px;
+
+  }
+
+  .ingredients {
+    margin: 0;
+
+    ul {
+      display: flex;
+      margin: 20px 0;
+      list-style: none;
+
+      li {
+        border: 2px solid white;
+        border-radius: 40px;
+        padding: 10px;
+        text-align: center;
+        background-color: #dfa4a9;
+        color: white;
+        font-family: 'Montserrat', 'sans-serif';
+        margin-right: 10px;
+        text-align: center;
+
+      }
+
+      .btn-delete {
+        border: none;
+        font-family: 'Montserrat', 'sans-serif';
+        color: white;
+        font-weight: 600;
+        background-color: transparent;
+        cursor: pointer;
+      }
+    }
+  }
+
 
   .class-title {
     color: white;
@@ -281,6 +428,19 @@ ul {
 
 }
 
+.recipes{
+  color: white;
+  font-family: 'Montserrat', 'sans-serif';
+  font-size: 16px;
+  font-weight: 500;
+
+
+  ul {
+    list-style-type: "- ";
+    margin-left: 20px;
+  }
+}
+
 .drink_details {
   display: flex;
   flex-direction: column;
@@ -290,6 +450,12 @@ ul {
   position: relative;
   margin: 0 auto;
   max-width: 376px;
+
+  p {
+    color: white;
+    font-family: 'Montserrat', 'sans-serif';
+    font-size: 16px;
+  }
 
 
 }
@@ -399,7 +565,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .invalid_date {
-  margin: 0;
+  margin: 0 0 5px 0;
   font-family: 'Montserrat', 'sans-serif';
   font-weight: 500;
   font-size: 13px;
