@@ -46,19 +46,14 @@ The project is organized as follows:
 - src/components: Contains React components for different parts of the application.
 - src/styles: Sass files for styling the components.
 
-## Contributing
-
-Contributions are welcome! If you would like to contribute to the project, please follow these steps:
-
-- Fork the repository.
-- Create a new branch for your feature or bug fix.
-- Make your changes and submit a pull request.
-
 
 ## Acknowledgements
 - The cocktail recipes are sourced from a reputable mixology API.
 - Special thanks to the React, TypeScript, and Sass communities for their excellent documentation and support.
 Enjoy your cocktails responsibly!
+
+## You can check the application using below link: 
+https://cocktailsearch-demo.netlify.app/
 
 **Project fully created by marrcelp, all rights reserved.**
 
