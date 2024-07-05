@@ -185,6 +185,7 @@ const Form: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
                                     <li key={index}>
                                         <div onClick={() => handleRecipeClick(recipe)}>
                                             {recipe.strDrink}
+                                            <span className="material-symbols-outlined" style={{ marginLeft: '5px', transform: 'rotate(90deg)', verticalAlign: 'middle' }}>arrow_drop_up</span>
                                         </div>
                                         {selectedRecipe && selectedRecipe.idDrink === recipe.idDrink && isExpanded && (
                                             <div className='recipes-container'>
