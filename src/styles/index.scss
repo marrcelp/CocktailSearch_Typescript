@@ -737,3 +737,18 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 
 }
+
+.recipe-item {
+  display: flex;
+  align-items: center;
+}
+
+.recipe-arrow {
+  margin-left: 10px;
+  transform: rotate(-90deg);
+  transition: transform 0.3s ease;
+}
+
+.recipe-arrow.expanded {
+  transform: rotate(-180deg);
+}
