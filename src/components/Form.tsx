@@ -85,9 +85,17 @@ const Form: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
             setIsValid(false);
         }}
 
+    // function handleRecipeClick(recipe: DrinkRecipe) {
+    //     setSelectedRecipe(recipe);
+    //     setIsExpanded(!isExpanded); // stan rozwinięcia/zwiniecia
+    // }
     function handleRecipeClick(recipe: DrinkRecipe) {
-        setSelectedRecipe(recipe);
-        setIsExpanded(!isExpanded); // stan rozwinięcia/zwiniecia
+        if (selectedRecipe && selectedRecipe.idDrink === recipe.idDrink) {
+            setIsExpanded(!isExpanded);
+        } else {
+            setSelectedRecipe(recipe);
+            setIsExpanded(true);
+        }
     }
 
     function handleRemove(ingredientToRemove: string) {
@@ -183,9 +191,12 @@ const Form: React.FC<{ isVisible: boolean }> = ({ isVisible }) => {
 
                                 {filteredRecipes.map((recipe, index) => (
                                     <li key={index}>
-                                        <div onClick={() => handleRecipeClick(recipe)}>
+                                        <div onClick={() => handleRecipeClick(recipe)} className='recipe-item'>
                                             {recipe.strDrink}
-                                            <span className="material-symbols-outlined" style={{ marginLeft: '5px', transform: 'rotate(90deg)', verticalAlign: 'middle' }}>arrow_drop_up</span>
+                                            {/*<span className={`material-symbols-outlined recipe-arrow ${isExpanded ? 'expanded' : ''}`}>arrow_drop_up</span>*/}
+                                            <span className={`material-symbols-outlined recipe-arrow ${selectedRecipe && selectedRecipe.idDrink === recipe.idDrink && isExpanded ? 'expanded' : ''}`}>
+                                            {selectedRecipe && selectedRecipe.idDrink === recipe.idDrink && isExpanded ? 'arrow_drop_up' : 'arrow_drop_down'}
+                                        </span>
                                         </div>
                                         {selectedRecipe && selectedRecipe.idDrink === recipe.idDrink && isExpanded && (
                                             <div className='recipes-container'>
