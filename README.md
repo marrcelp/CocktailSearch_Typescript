@@ -1,60 +1,107 @@
-# Cocktail Search App
+![demo gif](./src/images/cocktail-gif.gif)
 
-Welcome to the Cocktail Search App! This web application allows you to generate cocktail recipes based on your choice of alcohol and ingredients. It is built using React, TypeScript, and Sass to provide a user-friendly and visually appealing experience.
+# Find your perfect cocktail
 
-## Getting Started
+See the live version of this project:
 
-To run the application locally, follow these steps:
+- 🍹 [Cocktail Search App](https://cocktailsearch-demo.netlify.app)
 
-1. **Clone the Repository:**
-   ```bash
-   git clone [repository-url]
-   ```
-2. **Navigate to the Project Directory:**
-    ```bash
-   cd cocktail-generator-app
-   ```
-3. **Install Dependencies:**
-    ```bash
-   npm install
-    ```
+The goal of this project is to provide a sleek and interactive way to generate cocktail recipes based on user input. Users select a base alcohol (Gin, Vodka, Tequila) and add ingredients they currently have at home. The app then fetches relevant drink recipes from a cocktail API, displaying all matching options along with full instructions and a visual breakdown of which ingredients the user is missing.
 
-4. **Install Dependencies:**
-    ```bash
-   npm start
-   ```
+The project also includes an age verification gate to ensure the user is legally allowed to view alcohol-related content.
 
-The app will be accessible at http://localhost:3000.
+**Main features**:
+- Select a base alcohol (Gin, Vodka, Tequila) and input available ingredients.
+- Receive cocktail recipes that match your selected inputs.
+- View full instructions, ingredient lists, and which items you’re missing.
+- Age verification screen that blocks access for users under 18.
 
-## Features
+&nbsp;
 
-- Alcohol Selection: Choose your preferred type of alcohol from a list of options.
-- Ingredient Input: Enter specific ingredients you have on hand.
-- Recipe Generation: Get a curated cocktail recipe based on your selections.
-- Ingredient List: View a detailed list of ingredients required for the chosen recipe.
+## 💡 Technologies used
 
-## Technologies Used
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![Sass](https://img.shields.io/badge/Sass-%23CC6699.svg?style=for-the-badge&logo=sass&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![REST API](https://img.shields.io/badge/API-CocktailDB-000000?style=for-the-badge)
 
-- React: A JavaScript library for building user interfaces.
-- TypeScript: A superset of JavaScript that adds static types to the language.
-- Sass: A preprocessor scripting language that is interpreted or compiled into Cascading Style Sheets (CSS).
+&nbsp;
 
-## Project Structure
+## 💿 Installation
 
-The project is organized as follows:
+To install and run the project locally:
 
-- src/components: Contains React components for different parts of the application.
-- src/styles: Sass files for styling the components.
+```bash
+git clone https://github.com/your-username/cocktail-generator-app.git
+cd cocktail-generator-app
+npm install
+npm start
+```
 
+App will be available at: `http://localhost:3000`
 
-## Acknowledgements
-- The cocktail recipes are sourced from a reputable mixology API.
-- Special thanks to the React, TypeScript, and Sass communities for their excellent documentation and support.
-Enjoy your cocktails responsibly!
+&nbsp;
 
-## You can check the application using below link: 
-https://cocktailsearch-demo.netlify.app/
+## 🤔 Key components
 
-**Project fully created by marrcelp, all rights reserved.**
+### ✅ Age verification
 
+A form that checks if the user is over 18. The data is validated and stored in localStorage. If the user is underage, access is denied.
 
+```tsx
+if (age >= 18) {
+  localStorage.setItem('savedAge', age.toString());
+  setIsVisible(true);
+} else {
+  localStorage.removeItem('savedAge');
+  setIsVisible(false);
+}
+```
+
+### 🧠 Recipe filtering
+
+Once a user selects a base alcohol and inputs ingredients, the app fetches and filters drinks dynamically. Matching recipes are displayed with clickable cards that expand to reveal full details.
+
+```tsx
+const filtered = drinks.filter((recipe) => {
+  return selectedIngredients.some((ingredient) =>
+    recipe.strIngredient1?.toLowerCase().includes(ingredient.toLowerCase())
+  );
+});
+```
+
+### 🎯 Missing ingredients detection
+
+For each recipe, the app highlights which ingredients are missing. User-selected ones are shown in green, missing ones in red.
+
+```tsx
+if (selectedIngredientstoLower.includes(ingredient.toLowerCase())) {
+  color: '#008e00';
+} else {
+  color: '#d13030';
+}
+```
+
+## 💭 Next steps / Improvements
+
+- Add **search history** so users can revisit past recipes.
+- Improve **error handling** when fetching data from the API.
+- Consider introducing **React Context** or **Redux** for state management if the app grows.
+
+&nbsp;
+
+## 🙋‍♂️ Contact
+
+If you enjoyed this project or want to collaborate:
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/marcel-piaszczyk-200ba8181/)
+[![Gmail](https://img.shields.io/badge/Gmail-%23D14836.svg?style=for-the-badge&logo=gmail&logoColor=white)](mailto:marcel.piaszczyk@gmail.com)
+
+&nbsp;
+
+## 👏 Special thanks
+
+Thanks to [TheCocktailDB](https://www.thecocktaildb.com/) for the open API used in this project.
